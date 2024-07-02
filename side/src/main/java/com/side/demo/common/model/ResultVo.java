@@ -1,4 +1,4 @@
-package com.side.demo.common;
+package com.side.demo.common.model;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +15,6 @@ public class ResultVo<T> {
 	
 	@Builder
 	public ResultVo(String result, String resultMessage, T data) {
-		
 		this.result = result;
 		this.resultMessage = resultMessage;
 		this.data = data;

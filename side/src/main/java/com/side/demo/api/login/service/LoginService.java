@@ -1,5 +1,6 @@
 package com.side.demo.api.login.service;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -8,8 +9,8 @@ import org.springframework.stereotype.Service;
 import com.side.demo.api.login.model.LoginVo;
 import com.side.demo.api.user.model.UserEntity;
 import com.side.demo.api.user.repo.UserRepository;
-import com.side.demo.common.ResultVo;
-import com.side.demo.common.ResultVo.ResultVoBuilder;
+import com.side.demo.common.model.ResultVo;
+import com.side.demo.common.model.ResultVo.ResultVoBuilder;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -26,15 +27,17 @@ public class LoginService {
 
 	final UserRepository userRepository;
 
-	public ResultVo SignIn(Map<String, String> loginMap, HttpServletRequest httpServletRequest) {
-		// TODO Auto-generated method stub
 
-		UserEntity userEntity = userRepository.findByUserId(loginMap.get("userId"));
+	public ResponseEntity<ResultVo> SignIn(Map<String, String> loginMap, HttpServletRequest httpServletRequest) {
+		
 
-		LoginVo loginVo = new LoginVo();
-
-		return ResultVo.success("Login 하였습니다.", loginVo);
+		UserEntity userEntity = userRepository.findByUserId("test");
+		// TODO 사용자인증은 뭘로?.. OAtuh SAML?
+		return ResponseEntity.ok(ResultVo.success("Login 하였습니다.",LoginVo.of(userEntity.getUserId(),userEntity.getPhoneNumber(), null, null, null)));
 		
 	}
+	
+	
+	
 
 }

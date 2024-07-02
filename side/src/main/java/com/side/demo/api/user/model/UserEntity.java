@@ -11,28 +11,28 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @RequiredArgsConstructor
-@Table(name="side_user", catalog = "side_project")
+@Table(name = "side_user", catalog = "side_project")
 @Getter
 public class UserEntity {
 
 	@Id
-	@Column(name="index")
+	@Column(name = "index")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long index;
-	
-	@Column(name="userId")
+
+	@Column(name = "user_id")
 	String userId;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	String password;
-	
-	@Column(name="token")
+
+	@Column(name = "token")
 	String token;
-	
-	@Column(name="phoneNumber")
+
+	@Column(name = "phone_number")
 	String phoneNumber;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	String email;
-	
+
 }

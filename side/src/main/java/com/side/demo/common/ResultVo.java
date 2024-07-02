@@ -22,7 +22,9 @@ public class ResultVo<T> {
 	}
 	
 	
-	 public ResultVo success(String resultMessage,T data) {
+	
+	
+	 public static <T> ResultVo success(String resultMessage, T data) {
 	        return ResultVo.builder()
 	                .result("true")
 	                .resultMessage(resultMessage)

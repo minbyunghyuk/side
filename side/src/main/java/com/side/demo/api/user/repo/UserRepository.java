@@ -9,6 +9,6 @@ import com.side.demo.api.user.model.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long>{
 
-	
+	 UserEntity findByUserId(String userId);
 	
 }
